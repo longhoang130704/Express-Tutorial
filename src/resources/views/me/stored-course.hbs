@@ -1,0 +1,82 @@
+<div class="mt-4">
+    <h3>My Course</h3>
+    <a href="/me/trash/courses">Trash</a>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name Of Course</th>
+                <th scope="col">Description</th>
+                <th scope="col">Name</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each course}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.title}}</td>
+                <td>{{this.decription}}</td>
+                <td>{{this.slug}}</td>
+                <td>
+                    <a href="">Update</a>
+                    {{!-- <a href="/course/{{this._id}}/delete">Delete</a> --}}
+                    <a href="" data-toggle="modal" data-target="#exampleModal" data-id="{{this._id}}">Delete</a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="5">
+                    No courses found. Please create a course by clicking <a href="/course/create">here</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete the course?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="btn-delete-course" type="button" class="btn btn-danger">Delete</buttonid>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- submit form cho btnDeleteCourse de chuyen data qua CourseController.js --}}
+<form id="submit-delete-course-modal" method="post"></form>
+{{!-- Lang nghe su kien click Delete --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var courseId;
+        const btnDeleteCourse = document.getElementById("btn-delete-course")
+        const submitFormDeleteCousre = document.getElementById("submit-delete-course-modal")
+        
+        // Lay courseId tu exampleModal
+        $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        courseId = button.data('id')
+        })
+        
+        btnDeleteCourse.onclick = function (event) {
+            submitFormDeleteCousre.action = "/course/" + courseId + "?_method=DELETE";
+            submitFormDeleteCousre.submit();
+        }
+
+    });
+
+   
+</script>

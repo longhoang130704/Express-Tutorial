@@ -1,0 +1,37 @@
+{
+  "name": "express-tutorial",
+  "version": "1.0.0",
+  "description": "Learn Express",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longhoang130704/Express-Tutorial.git"
+  },
+  "keywords": [
+    "Express",
+    "Tutorial"
+  ],
+  "author": "Cigivi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longhoang130704/Express-Tutorial/issues"
+  },
+  "homepage": "https://github.com/longhoang130704/Express-Tutorial#readme",
+  "dependencies": {
+    "express": "^4.21.0",
+    "express-handlebars": "^8.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.7.0",
+    "mongoose-delete": "^1.0.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.1.7"
+  }
+}

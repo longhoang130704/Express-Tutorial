@@ -1,0 +1,30 @@
+<div class="container mt-4">
+        <h2>Create New Course</h2>
+        <form method="POST" action="/course/store">
+            <div class="form-group">
+                <label for="decription">Description</label>
+                <input type="text" class="form-control" id="decription" name="decription" placeholder="Enter course description" required>
+            </div>
+            <div class="form-group">
+                <label for="img">ImgURL</label>
+                <input type="text" class="form-control" id="img" name="img" placeholder="Enter course ImgURL" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter course title" required>
+            </div>
+            <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter course slug" required>
+            </div>
+            <div class="form-group">
+                <label for="video_id">Video ID</label>
+                <input type="text" class="form-control" id="video_id" name="video_id" placeholder="Enter video ID" required>
+            </div>
+            {{!-- <div class="form-group">
+                <label for="level">Level</label>
+                <input type="text" class="form-control" id="level" name="level" placeholder="Enter course level" required>
+            </div> --}}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
